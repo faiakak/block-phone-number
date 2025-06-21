@@ -5,7 +5,7 @@ import (
 
 	"github.com/gorilla/mux"
 
-	"blocked-phone-numbers/handlers"
+	"github.com/faiakak/block-phone-number/handlers"
 )
 
 // InitRoutes sets up all API and static routes with middleware

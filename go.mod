@@ -1,4 +1,4 @@
-module blocked-phone-numbers
+module github.com/faiakak/block-phone-number
 
 go 1.24.4
 

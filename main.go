@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"os"
 
-	"blocked-phone-numbers/config"
-	"blocked-phone-numbers/handlers"
-	"blocked-phone-numbers/routes"
+	"github.com/faiakak/block-phone-number/config"
+	"github.com/faiakak/block-phone-number/handlers"
+	"github.com/faiakak/block-phone-number/routes"
 
 	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"

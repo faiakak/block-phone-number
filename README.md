@@ -10,7 +10,7 @@ This project is a simple web application built in Go for managing blocked phone 
 - Manage store locations
 - RESTful JSON API
 - PostgreSQL storage with auto migrations
-- Dockerized deployment
+- Dockerized deployment 
 
 ## 🚀 Getting Started
 
@@ -119,10 +119,8 @@ go test ./...
 ```
 .
 ├── config/            # DB connection & migrations
-├── handlers/          # HTTP route handlers
-├── models/            # Data models
+├── handlers/          # HTTP route handlers & Test
 ├── routes/            # Router definitions
-├── tests/             # Unit & integration tests
 ├── Dockerfile
 ├── docker-compose.yml
 ├── README.md
