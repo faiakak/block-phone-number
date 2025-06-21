@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmagineNET - Blocked Phone Numbers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="alertContainer" class="alert-container"></div>
+    <div class="container">
+        <div class="header">
+            <h1>🛡️ EmagineNET</h1>
+            <p>Blocked Phone Numbers Management System</p>
+        </div>
+
+        <div class="main-content">
+            <!-- Phone Number Checker -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>🔍 Check Phone Number</h2>
+                    <p>Verify if a phone number is blocked before processing a check</p>
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="checkPhoneNumber">Phone Number</label>
+                            <input type="tel" class="form-control" id="checkPhoneNumber" 
+                                   placeholder="(555) 123-4567" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-check" onclick="checkPhoneNumber()">
+                                Check Status
+                            </button>
+                        </div>
+                    </div>
+                    <div id="checkResult"></div>
+                </div>
+            </div>
+
+            <!-- Add Phone Number -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>🚫 Block Phone Number</h2>
+                    <p>Add a phone number to the blocked list</p>
+                </div>
+                <div class="card-body">
+                    <form id="blockPhoneForm">
+                        <div class="form-group">
+                            <label for="phoneNumber">Phone Number *</label>
+                            <input type="tel" class="form-control" id="phoneNumber" 
+                                   placeholder="(555) 123-4567" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reason">Reason for Blocking</label>
+                            <input type="text" class="form-control" id="reason" 
+                                   placeholder="e.g., Fraudulent check attempt">
+                        </div>
+                        <div class="form-group">
+                            <label for="blockedBy">Blocked By</label>
+                            <input type="text" class="form-control" id="blockedBy" 
+                                   placeholder="e.g., Store Manager, Your Name">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Block Phone Number</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Blocked Numbers List -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>📋 Blocked Phone Numbers</h2>
+                    <p>Currently blocked phone numbers in the system</p>
+                </div>
+                <div class="card-body">
+                    <div class="loading" id="loading">
+                        <div class="spinner"></div>
+                        <p>Loading blocked numbers...</p>
+                    </div>
+                    <div class="table-container">
+                        <table class="table" id="blockedTable" style="display: none;">
+                            <thead>
+                                <tr>
+                                    <th>Phone Number</th>
+                                    <th>Reason</th>
+                                    <th>Blocked By</th>
+                                    <th>Date Blocked</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="blockedTableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="empty-state" id="emptyState" style="display: none;">
+                        <div style="font-size: 3rem; margin-bottom: 15px; opacity: 0.5;">📱</div>
+                        <h3>No Blocked Numbers</h3>
+                        <p>No phone numbers are currently blocked. Use the form above to add numbers to the blocked list.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
