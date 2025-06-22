@@ -4,10 +4,9 @@ This project is a simple web application built in Go for managing blocked phone 
 
 ## 📦 Features
 
-- Block phone numbers with reason, store, and metadata
+- Block phone numbers with reason, and blocked by
 - Check if a phone number is blocked
 - List and remove blocked phone numbers
-- Manage store locations
 - RESTful JSON API
 - PostgreSQL storage with auto migrations
 - Dockerized deployment 
@@ -18,7 +17,7 @@ This project is a simple web application built in Go for managing blocked phone 
 
 - [Go 1.21+](https://golang.org/dl/)
 - [Docker + Docker Compose](https://docs.docker.com/compose/)
-- PostgreSQL client (optional)
+- PostgreSQL
 
 ### Clone the repository
 
@@ -52,7 +51,7 @@ docker-compose up db
 Or manually create the DB:
 
 ```bash
-createdb -U postgres -h localhost -p 5433 emaginenet_blocked_numbers
+createdb -U postgres -h localhost -p 5432 <database_name>
 ```
 
 ### 3. Run the Go app
@@ -79,8 +78,8 @@ Ensure `.env` is set as:
 DB_HOST=db
 DB_PORT=5432
 DB_USER=postgres
-DB_PASSWORD=secret
-DB_NAME=emaginenet_blocked_numbers
+DB_PASSWORD=<db_password>
+DB_NAME=<db_name>
 APP_PORT=8080
 ENV=production
 ```
@@ -97,10 +96,8 @@ After successful startup:
 |--------|-----------------------|------------------------------|
 | GET    | `/api/blocked-phones` | List blocked numbers         |
 | POST   | `/api/blocked-phones` | Block a phone number         |
-| DELETE | `/api/blocked-phones/{id}` | Unblock a number       |
+| DELETE | `/api/blocked-phones/{id}` | Unblock a number        |
 | POST   | `/api/check-phone`    | Check block status           |
-| GET    | `/api/stores`         | List all stores              |
-| POST   | `/api/stores`         | Create a new store           |
 
 ---
 
