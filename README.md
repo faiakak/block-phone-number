@@ -75,13 +75,17 @@ docker-compose up --build
 Ensure `.env` is set as:
 
 ```env
-DB_HOST=db
-DB_PORT=5432
-DB_USER=postgres
+# Database Configuration
+DB_USER=<db_user>
 DB_PASSWORD=<db_password>
 DB_NAME=<db_name>
-APP_PORT=8080
-ENV=production
+DB_PORT=<db_port>
+DB_HOST=<db_host>
+
+# App Configuration
+APP_PORT=<db_user>
+ENV=<app_env>
+
 ```
 
 After successful startup:

@@ -4,9 +4,9 @@ services:
   db:
     image: postgres:17
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: secret
-      POSTGRES_DB: emaginenet_blocked_numbers
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
     ports:
       - "5433:5432"
     volumes:
@@ -15,18 +15,18 @@ services:
   api:
     build: .
     ports:
-      - "8080:8080"
+      - "${APP_PORT}:${APP_PORT}"
     depends_on:
       - db
     restart: on-failure
     environment:
       DB_HOST: db
-      DB_PORT: 5432
-      DB_USER: postgres
-      DB_PASSWORD: secret
-      DB_NAME: emaginenet_blocked_numbers
-      APP_PORT: 8080
-      ENV: production
+      DB_PORT: ${DB_PORT}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      APP_PORT: ${APP_PORT}
+      ENV: ${ENV}
 
 volumes:
   pgdata:
