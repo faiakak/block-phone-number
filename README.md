@@ -33,12 +33,15 @@ cd block-phone-number
 ### 1. Create a `.env` file
 
 ```env
-DB_HOST=localhost
-DB_PORT=5433
-DB_USER=postgres
-DB_PASSWORD=secret
-DB_NAME=emaginenet_blocked_numbers
-APP_PORT=8080
+# Database Configuration
+DB_USER=<db_user>
+DB_PASSWORD=<db_password>
+DB_NAME=<db_name>
+DB_PORT=<db_port>
+DB_HOST=<db_host>
+
+# App Configuration
+APP_PORT=<db_user>
 ENV=local
 ```
 
@@ -84,7 +87,7 @@ DB_HOST=<db_host>
 
 # App Configuration
 APP_PORT=<db_user>
-ENV=<app_env>
+ENV=production
 
 ```
 
