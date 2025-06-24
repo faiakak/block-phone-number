@@ -33,6 +33,17 @@ func RunMigrations(db *sql.DB) {
 			);
 			`,
 		},
+		{
+			Version: "20250731_remove_unique_constraint",
+			Query: `
+			-- Remove the unique constraint to allow multiple records for same phone number
+			ALTER TABLE emaginenet_blocked_numbers DROP CONSTRAINT IF EXISTS emaginenet_blocked_numbers_phone_number_key;
+			
+			-- Add index for better query performance
+			CREATE INDEX IF NOT EXISTS idx_phone_number_active ON emaginenet_blocked_numbers(phone_number, is_active);
+			CREATE INDEX IF NOT EXISTS idx_blocked_date ON emaginenet_blocked_numbers(blocked_date DESC);
+			`,
+		},
 	}
 
 	// Ensure schema_migrations table exists

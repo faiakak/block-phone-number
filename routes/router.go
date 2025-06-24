@@ -18,6 +18,7 @@ func InitRoutes() *mux.Router {
 	api.HandleFunc("/blocked-phones", handlers.GetBlockedPhones).Methods("GET")
 	api.HandleFunc("/blocked-phones", handlers.AddBlockedPhone).Methods("POST")
 	api.HandleFunc("/blocked-phones/{id}", handlers.RemoveBlockedPhone).Methods("DELETE")
+	api.HandleFunc("/blocked-phones/history/{phoneNumber}", handlers.GetPhoneHistory).Methods("GET")
 	api.HandleFunc("/check-phone", handlers.CheckPhone).Methods("POST")
 
 	// Serve static files (frontend HTML/JS/CSS)
